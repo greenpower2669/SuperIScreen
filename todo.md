@@ -1,0 +1,11 @@
+# SuperIScreen — tâches en cours
+- [x] Vérifier le dépôt et l'accès GitHub.
+- [x] Vérifier le format de la vidéo fournie et le parcours Samsung.
+- [x] Créer la branche de développement et le projet Android minimal.
+- [x] Ajouter le fond animé vidéo en boucle et sans audio.
+- [x] Ajouter import de vidéo sans stockage sur le dépôt public.
+- [x] Configurer la CI pour produire l'APK debug.
+- [ ] Contrôler le résultat réel de GitHub Actions et corriger les éventuelles erreurs de compilation.
+- [ ] Tester sur le téléphone Samsung de Yann : cadrage, boucle, verrouillage/déverrouillage et batterie.
+- [ ] Valider une version avant de créer une GitHub Release avec lien APK direct.
+- [ ] Documenter compatibilités One UI et besoins supplémentaires de cadrage.
