@@ -44,6 +44,22 @@ jobs:
         with:
           name: SuperIScreen-v0.1.0-debug
           path: SuperIScreen-v0.1.0-debug.apk
+      - name: Publish direct-download test APK on the development branch
+        if: github.ref == 'refs/heads/feature/video-wallpaper-v010'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="v0.1.0-debug"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" SuperIScreen-v0.1.0-debug.apk --clobber
+          else
+            gh release create "$TAG" SuperIScreen-v0.1.0-debug.apk \
+              --target "$GITHUB_SHA" \
+              --title "SuperIScreen v0.1.0 — APK de test" \
+              --notes "APK Android de test signé avec la clé debug. Importer une vidéo locale après installation. Compilation GitHub Actions validée ; compatibilité et rendu sur le Samsung de Yann restent à tester." \
+              --prerelease
+          fi
       - name: Publish APK in a GitHub Release when a tag is created
         if: startsWith(github.ref, 'refs/tags/v')
         env:
